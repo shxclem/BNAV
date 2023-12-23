@@ -1,6 +1,6 @@
 # PROJET BNAV ING1-GI2
 
-![alt_text](https://github.com/shxclem/Bataille-navale/blob/ressources/BNAV.jpg)
+![alt_text](https://github.com/shxclem/BNAV/blob/ressources/BNAV.jpg)
 
 
 ## Table des matières
