@@ -12,6 +12,7 @@
 
 BNAV est un projet visant à permettre à l'utilisateur de jouer au jeu de la bataille navale depuis le terminal.
 Ce programme a été programmé dans le langage C.
+La documentation du projet se trouve dans le dossier "html" dans le fichier "index.html".
 
 ## UTILISATION
 
