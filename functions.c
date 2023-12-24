@@ -1,31 +1,45 @@
+/**
+ * @file functions.c
+ * @author Clément DURECU
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 #include "functions.h"
 
-/*! Function to initialize a board of game */
+/**
+ * @brief  Function to initialize a **board** of game 
+ * @param[in] size the **size** of the board
+ * @return The board we initialized 
+ */
 Board* initBoard (int size) {
 
     //Allocate matrix memory
     Board* board = (Board*) malloc(sizeof(Board));
     board->size=size;
 
-    board->matrix = malloc(size * sizeof(BoxType));
-    board->shots = malloc(size * sizeof(BoxType));
+    board->matrix = malloc(size * size * sizeof(BoxType));
+    board->shots = malloc(size * size * sizeof(BoxType));
     for (int i=0 ; i<size ; i++) {
         board->matrix[i] = malloc(size * sizeof(BoxType));
         board->shots[i] = malloc(size * sizeof(BoxType));
         for (int j=0 ; j<size ; j++) {
             board->matrix[i][j] = WATER;        //Initialize all boxes as WATER
-            board->shots[i][j] = WATER;    //Initialize all boxes as WATER_SHOT
+            board->shots[i][j] = WATER;         //Initialize all boxes as WATER_SHOT
         }
     }
 
     return board;
 }
 
-/*! Function to free a board memory void */
+/**
+ * @brief Function to free memory allocated to a board
+ * @param[in] board the board we want to free memory from
+ * @return void
+ */
 void freeBoard(Board* board) {     
     for (int i = 0; i < board->size; i++) {         
         free(board->matrix[i]);     
@@ -34,7 +48,12 @@ void freeBoard(Board* board) {
     free(board); 
 }
 
-/*! Function to print the board*/
+/**
+ * @brief Function to print the board
+ * @param[in] game the game we are currently playing
+ * @param[in] player the player we want to print the board of 
+ * @return void
+ */
 void printBoard(Game* game, int player) {
     Board* board = (player == 1) ? game->P1_board : game->P2_board;
 
@@ -59,7 +78,7 @@ void printBoard(Game* game, int player) {
             }
         }
         printf("            ");
-        printf("%d ", i + 1);
+        printf("%d ", i + 1);   
         if(i < 9) {
             printf(" ");
         }
@@ -79,13 +98,17 @@ void printBoard(Game* game, int player) {
     }
 }
 
-// Function to create a boat
+/**
+ * @brief Function to create a boat
+ * @param[in] playerBoard the board of the player we want to create a boat on
+ * @param[in] boatNumber the number of boats per player
+ * @return The boat we created
+ */ 
 Boat* createBoat(Board* playerBoard, int boatNumber) {
     Boat* boat = (Boat*) malloc(sizeof(Boat));
 
     int isValid = 0;
 
-    //TODO: Make the boat don't touch each other
     while (!isValid) {
         // Getting the boat size
         boat->size = BOAT_SIZES(boatNumber);
@@ -116,12 +139,20 @@ Boat* createBoat(Board* playerBoard, int boatNumber) {
     return boat;
 }
 
-// Function to verify if a boat is still alive
+/**
+ * @brief Function to verify if a boat is still alive
+ * @param[in] boat the boat we want to check life status
+ * @return 1 if the size of the boat is > 0, else 0
+ */ 
 int isBoatAlive(Boat* boat) {
     return boat->size > 0;
 }
 
-// Function to create a new game
+/**
+ * @brief Function to create a new game
+ * @param[in] gameType the type of game : **player mode, normal bot mode or hardcore bot mode**
+ * @return The game we created
+ */
 Game* createGame(GameType gameType) {
     Game* game = (Game*) malloc(sizeof(Game));
     game->P1_board = initBoard(BOARD_SIZE);
@@ -160,7 +191,11 @@ Game* createGame(GameType gameType) {
     return game;
 }
 
-// Function to free a game memory
+/**
+ * @brief Function to free memory allocated to a game
+ * @param[in] game the game we want to free memory allocated to
+ * @return void
+ */
 void freeGame(Game* game) {
     freeBoard(game->P1_board);
     freeBoard(game->P2_board);
@@ -169,7 +204,12 @@ void freeGame(Game* game) {
     free(game);
 }
 
-// Function to print the boats
+/** 
+ * @brief Function to print the boats of a player
+ * @param[in] game the game we are currently playing
+ * @param[in] player the player we want to print the boats of 
+ * @return void
+ */
 void printBoats(Game* game, int player) {
     Boat* boats = (player == 1) ? game->P1_boats : game->P2_boats;
 
@@ -180,7 +220,12 @@ void printBoats(Game* game, int player) {
     }
 }
 
-// Function to show the POV of the player
+/**
+ * @brief Function to show the POV of the player : **player board + shot board**
+ * @param[in] game the game we are currently playing
+ * @param[in] player the player we want to show the POV of 
+ * @return void
+ */ 
 void showPOV(Game* game, int player) {
     Board* board = (player == 1) ? game->P1_board : game->P2_board;
 
@@ -190,8 +235,14 @@ void showPOV(Game* game, int player) {
     printBoats(game, player);
 }
 
-// Function to sequence the turn of the players
-int turn(Game* game, int player) {
+/**
+ * @brief Function to sequence the turn of the players
+ * @param[in] game the game we are currently playing 
+ * @param[in] player the player we want to sequence the turn of 
+ * @param[in] gameType the type of game : **player mode, normal bot mode or hardcore bot mode**
+ * @return 0 if no error
+ */ 
+int turn(Game* game, int player, GameType gameType) {
     int x, y;
 
     // Getting the player board
@@ -208,47 +259,56 @@ int turn(Game* game, int player) {
         showPOV(game, player);
 
         // Getting the shot position
-        printf("Player %d, enter the shot position: ", player);
+        printf("Player %d, enter the shot position (format = [x] [y]) : ", player);
         scanf("%d %d", &x, &y);
 
         // Verifying if the shot position is valid
         if (x < 1 || x > BOARD_SIZE || y < 1 || y > BOARD_SIZE) {
             printf("Invalid shot position!\n");
+            sleep(1);
             return 0;
         }
 
         // Verifying if the shot position has already been shot
         if (opponentBoard->matrix[x - 1][y - 1] == WATER_SHOT || opponentBoard->matrix[x - 1][y - 1] == WRECK) {
             printf("You have already shot this position!\n");
+            sleep(1);
             return 0;
         }
     }
-    else {
+    else {    
         // Getting the shot position
         x = rand() % BOARD_SIZE + 1;
         y = rand() % BOARD_SIZE + 1;
 
-        // Bot random mode
-        // while (opponentBoard->matrix[x - 1][y - 1] == WATER_SHOT || opponentBoard->matrix[x - 1][y - 1] == WRECK) {
-        // Bot invicible mode
-        while (opponentBoard->matrix[x - 1][y - 1] != BOAT) {
+        while (gameType == BOT_H && opponentBoard->matrix[x - 1][y - 1] != BOAT || gameType == BOT && opponentBoard->matrix[x - 1][y - 1] != WATER && opponentBoard->matrix[x - 1][y - 1] != BOAT) {
             x = rand() % BOARD_SIZE + 1;
             y = rand() % BOARD_SIZE + 1;
         }
-
         printf("The bot has shot the position %d %d\n", x, y);
+        sleep(1);
     }
     
     // Shooting
     shoot(x, y, playerBoard, opponentBoard, opponentBoats);
 }
 
+/**
+ * @brief Function to simulate a shot on the other board
+ * @param[in] x the reference position in x
+ * @param[in] y the reference position in y 
+ * @param[in] playerBoard the board of the player who shots
+ * @param[in] opponentBoard the board of the player who gets shot
+ * @param[in] opponentBoats the position of the opponent boats
+ * @return void
+*/
 void shoot(int x, int y, Board* playerBoard, Board* opponentBoard, Boat* opponentBoats) {
     int isHit = 0;
 
     // Verifying if the shot position has a boat
     if (opponentBoard->matrix[x - 1][y - 1] == BOAT) {
         printf("You have hit a boat!\n");
+        sleep(1);
         // Setting the shot position as WRECK
         opponentBoard->matrix[x - 1][y - 1] = WRECK;
         playerBoard->shots[x - 1][y - 1] = WRECK;
@@ -268,6 +328,7 @@ void shoot(int x, int y, Board* playerBoard, Board* opponentBoard, Boat* opponen
             if (opponentBoats[i].hits == opponentBoats[i].size) {
                 opponentBoats[i].size = 0;
                 printf("You have destroyed a boat!\n");
+                sleep(1);
             }
         }
 
@@ -276,10 +337,16 @@ void shoot(int x, int y, Board* playerBoard, Board* opponentBoard, Boat* opponen
         // Setting the shot position as WATER_SHOT
         playerBoard->shots[x - 1][y - 1] = WATER_SHOT;
         printf("You have hit the water!\n");
+        sleep(1);
     }
 }
 
-// Function to verify if there is a winner
+/**
+ * @brief Function to verify if there is a winner
+ * @param[in] game the game we are currently playing
+ * @param[in] player the player we want to check if he is a winner
+ * @return 1 if there is a winner, else 0
+ */ 
 int checkWinner(Game* game, int player) {
     Board* opponentBoard = (player == 1) ? game->P2_board : game->P1_board;
     Boat* opponentBoats = (player == 1) ? game->P2_boats : game->P1_boats;
@@ -303,6 +370,7 @@ int checkWinner(Game* game, int player) {
     }
 
     if (isWinner) {
+        sleep(1);
         printf("Player %d has won!\n", player);
     }
 

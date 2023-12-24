@@ -1,11 +1,10 @@
 CC = gcc
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
-INC = $(wildcard *.h)
 
 all : bnav
 
-%.o : %.c $(INC)
+%.o : %.c 
 	$(CC) -c $< -o $@
 
 bnav : $(OBJ)
