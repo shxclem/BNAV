@@ -30,7 +30,12 @@ Le déroulement d'une partie de bataille navale se fait en plusieurs phases :
   - Une phase de jeu où chacun leur tour, les joueurs vont lancer une bombe sur une case en espérant toucher un bateau ennemi
   - La partie se terminera donc quand un des deux joueurs n'aura plus de bateau en vie sur son plateau
 
-Il suffira simplement de suivre les informations données par le programme pour jouer une partie.
+Plusieurs modes de jeu sont disnonibles :
+  - Jouer contre un vrai adversaire en local
+  - Jouer contre un bot en mode normal
+  - Jouer contre un bot en mode impossible
+
+En ce qui concerne les commandes à utiliser lors du déroulement de la partie, il suffira simplement de suivre les indications.
 
 #### CREATEUR
 
