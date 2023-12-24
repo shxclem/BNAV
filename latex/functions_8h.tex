@@ -1,0 +1,482 @@
+\hypertarget{functions_8h}{}\doxysection{functions.\+h File Reference}
+\label{functions_8h}\index{functions.h@{functions.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+Include dependency graph for functions.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structboat}{boat}}
+\begin{DoxyCompactList}\small\item\em Structure that defines the parameters of each boats. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structboard}{board}}
+\begin{DoxyCompactList}\small\item\em Structure that defines the parameters of the board. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structgame}{game}}
+\begin{DoxyCompactList}\small\item\em Structure that defines the parameters of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{functions_8h_ab5a80bb7e36cebebe994895fae1d6cc8}{BOAT\+\_\+\+NUMBER}}~5
+\item 
+\#define \mbox{\hyperlink{functions_8h_a03a271cf0660e52130d8f6dd8bc29452}{BOAT\+\_\+\+SIZES}}(i)~(i==0 ? 5 \+: (i==1 ? 4 \+: (i==2 ? 3 \+: (i==3 ? 3 \+: 2))))
+\item 
+\#define \mbox{\hyperlink{functions_8h_a1db39eb31d1315ce982608fe25587b6d}{BOARD\+\_\+\+SIZE}}~10
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909d}{box\+Type}} \mbox{\hyperlink{functions_8h_a2e0184bf2803946b90ed6991a102bd5e}{Box\+Type}}
+\begin{DoxyCompactList}\small\item\em Enumeration that contains the different possible states of a box. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{functions_8h_a99f26e6ee9fcd62f75203b5402df8098}{direction}} \mbox{\hyperlink{functions_8h_abc151ba67b4c70f0e8dc3fe894264aa1}{Direction}}
+\begin{DoxyCompactList}\small\item\em Enumeration that contains the different possible states of direction. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3}{game\+Type}} \mbox{\hyperlink{functions_8h_af6f366fb1e7740079c3795740bc7bd08}{Game\+Type}}
+\begin{DoxyCompactList}\small\item\em Enumeration that contains the different possible states of game type. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structboat}{boat}} \mbox{\hyperlink{functions_8h_a33bc35bd542701fe9b4250c6b052b772}{Boat}}
+\begin{DoxyCompactList}\small\item\em Structure that defines the parameters of each boats. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structboard}{board}} \mbox{\hyperlink{functions_8h_a3c10129367cfae8f208778364a6a928e}{Board}}
+\begin{DoxyCompactList}\small\item\em Structure that defines the parameters of the board. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structgame}{game}} \mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}}
+\begin{DoxyCompactList}\small\item\em Structure that defines the parameters of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909d}{box\+Type}} \{ \mbox{\hyperlink{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909da9ac7d5e5851d7a2bc186a1c3341589f6}{WATER}}
+, \mbox{\hyperlink{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909dae8af2ae3ffe833ed5371a22f29a0646b}{WATER\+\_\+\+SHOT}}
+, \mbox{\hyperlink{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909da5fcfdc36f4798fb6ace9348a10f1e1b3}{BOAT}}
+, \mbox{\hyperlink{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909da6589b5d605e0a15fa3323937132bfa61}{WRECK}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration that contains the different possible states of a box. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{functions_8h_a99f26e6ee9fcd62f75203b5402df8098}{direction}} \{ \mbox{\hyperlink{functions_8h_a99f26e6ee9fcd62f75203b5402df8098a5008b1179f399a2273fd3f6a7fc3b292}{H}}
+, \mbox{\hyperlink{functions_8h_a99f26e6ee9fcd62f75203b5402df8098a28f41f1144eee94834387e9a6a088bc1}{V}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration that contains the different possible states of direction. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3}{game\+Type}} \{ \mbox{\hyperlink{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3ade5dc3e0dbd007d995ed3e37bde5ce7e}{PLAYER}}
+, \mbox{\hyperlink{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3af17572a012356686981c1f2b797e1919}{BOT\+\_\+H}}
+, \mbox{\hyperlink{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3a8701d7066e8b0fb9f21e9d933739062e}{BOT}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration that contains the different possible states of game type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{functions_8h_a3c10129367cfae8f208778364a6a928e}{Board}} $\ast$ \mbox{\hyperlink{functions_8h_a52d50c149f41317d47d25a8f8f78b275}{init\+Board}} (int size)
+\begin{DoxyCompactList}\small\item\em Function to initialize a {\bfseries{board}} of game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_a9dc26f46286982340aefcc77e5b8e376}{free\+Board}} (\mbox{\hyperlink{functions_8h_a3c10129367cfae8f208778364a6a928e}{Board}} $\ast$\mbox{\hyperlink{structboard}{board}})
+\begin{DoxyCompactList}\small\item\em Function to free memory allocated to a board. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_acf216df668455c1735c5fcdee1a0f537}{print\+Board}} (\mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}} $\ast$\mbox{\hyperlink{structgame}{game}}, int player)
+\begin{DoxyCompactList}\small\item\em Function to print the board. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{functions_8h_a33bc35bd542701fe9b4250c6b052b772}{Boat}} $\ast$ \mbox{\hyperlink{functions_8h_ae661f1bcfe2fb8a112d1cfd43647d0ac}{create\+Boat}} (\mbox{\hyperlink{functions_8h_a3c10129367cfae8f208778364a6a928e}{Board}} $\ast$player\+Board, int boat\+Number)
+\begin{DoxyCompactList}\small\item\em Function to create a boat. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{functions_8h_adb27847acb8934d437800d45abde6069}{is\+Boat\+Alive}} (\mbox{\hyperlink{functions_8h_a33bc35bd542701fe9b4250c6b052b772}{Boat}} $\ast$\mbox{\hyperlink{structboat}{boat}})
+\begin{DoxyCompactList}\small\item\em Function to verify if a boat is still alive. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}} $\ast$ \mbox{\hyperlink{functions_8h_a629d3eb48de7cf73518a8f3af68b67ce}{create\+Game}} ()
+\item 
+void \mbox{\hyperlink{functions_8h_a491341d547ffabcf60d3f41f3624c9e2}{free\+Game}} (\mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}} $\ast$\mbox{\hyperlink{structgame}{game}})
+\begin{DoxyCompactList}\small\item\em Function to free memory allocated to a game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_a2f24571888f7060f5df2d1190663fde8}{print\+Boats}} (\mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}} $\ast$\mbox{\hyperlink{structgame}{game}}, int player)
+\begin{DoxyCompactList}\small\item\em Function to print the boats of a player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_a87e6b0c533cd6f9c78e6e95a56c7562d}{show\+POV}} (\mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}} $\ast$\mbox{\hyperlink{structgame}{game}}, int player)
+\begin{DoxyCompactList}\small\item\em Function to show the POV of the player \+: {\bfseries{player board + shot board}} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{functions_8h_a3cdb07d6db0d990dafaecd71f04ac97a}{turn}} (\mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}} $\ast$\mbox{\hyperlink{structgame}{game}}, int player, \mbox{\hyperlink{functions_8h_af6f366fb1e7740079c3795740bc7bd08}{Game\+Type}} \mbox{\hyperlink{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3}{game\+Type}})
+\begin{DoxyCompactList}\small\item\em Function to sequence the turn of the players. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{functions_8h_a68c47bf4770c750d376111c208b36b89}{check\+Winner}} (\mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}} $\ast$\mbox{\hyperlink{structgame}{game}}, int player)
+\begin{DoxyCompactList}\small\item\em Function to verify if there is a winner. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_ae3e2a943202e805e4e4519eee29a5d15}{shoot}} (int x, int y, \mbox{\hyperlink{functions_8h_a3c10129367cfae8f208778364a6a928e}{Board}} $\ast$player\+Board, \mbox{\hyperlink{functions_8h_a3c10129367cfae8f208778364a6a928e}{Board}} $\ast$opponent\+Board, \mbox{\hyperlink{functions_8h_a33bc35bd542701fe9b4250c6b052b772}{Boat}} $\ast$opponent\+Boats)
+\begin{DoxyCompactList}\small\item\em Function to simulate a shot on the other board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Clément DURECU 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{functions_8h_a1db39eb31d1315ce982608fe25587b6d}\label{functions_8h_a1db39eb31d1315ce982608fe25587b6d}} 
+\index{functions.h@{functions.h}!BOARD\_SIZE@{BOARD\_SIZE}}
+\index{BOARD\_SIZE@{BOARD\_SIZE}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{BOARD\_SIZE}{BOARD\_SIZE}}
+{\footnotesize\ttfamily \#define BOARD\+\_\+\+SIZE~10}
+
+\mbox{\Hypertarget{functions_8h_ab5a80bb7e36cebebe994895fae1d6cc8}\label{functions_8h_ab5a80bb7e36cebebe994895fae1d6cc8}} 
+\index{functions.h@{functions.h}!BOAT\_NUMBER@{BOAT\_NUMBER}}
+\index{BOAT\_NUMBER@{BOAT\_NUMBER}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{BOAT\_NUMBER}{BOAT\_NUMBER}}
+{\footnotesize\ttfamily \#define BOAT\+\_\+\+NUMBER~5}
+
+\mbox{\Hypertarget{functions_8h_a03a271cf0660e52130d8f6dd8bc29452}\label{functions_8h_a03a271cf0660e52130d8f6dd8bc29452}} 
+\index{functions.h@{functions.h}!BOAT\_SIZES@{BOAT\_SIZES}}
+\index{BOAT\_SIZES@{BOAT\_SIZES}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{BOAT\_SIZES}{BOAT\_SIZES}}
+{\footnotesize\ttfamily \#define BOAT\+\_\+\+SIZES(\begin{DoxyParamCaption}\item[{}]{i }\end{DoxyParamCaption})~(i==0 ? 5 \+: (i==1 ? 4 \+: (i==2 ? 3 \+: (i==3 ? 3 \+: 2))))}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{functions_8h_a3c10129367cfae8f208778364a6a928e}\label{functions_8h_a3c10129367cfae8f208778364a6a928e}} 
+\index{functions.h@{functions.h}!Board@{Board}}
+\index{Board@{Board}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{Board}{Board}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structboard}{board}} \mbox{\hyperlink{functions_8h_a3c10129367cfae8f208778364a6a928e}{Board}}}
+
+
+
+Structure that defines the parameters of the board. 
+
+\mbox{\Hypertarget{functions_8h_a33bc35bd542701fe9b4250c6b052b772}\label{functions_8h_a33bc35bd542701fe9b4250c6b052b772}} 
+\index{functions.h@{functions.h}!Boat@{Boat}}
+\index{Boat@{Boat}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{Boat}{Boat}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structboat}{boat}} \mbox{\hyperlink{functions_8h_a33bc35bd542701fe9b4250c6b052b772}{Boat}}}
+
+
+
+Structure that defines the parameters of each boats. 
+
+\mbox{\Hypertarget{functions_8h_a2e0184bf2803946b90ed6991a102bd5e}\label{functions_8h_a2e0184bf2803946b90ed6991a102bd5e}} 
+\index{functions.h@{functions.h}!BoxType@{BoxType}}
+\index{BoxType@{BoxType}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{BoxType}{BoxType}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909d}{box\+Type}} \mbox{\hyperlink{functions_8h_a2e0184bf2803946b90ed6991a102bd5e}{Box\+Type}}}
+
+
+
+Enumeration that contains the different possible states of a box. 
+
+\mbox{\Hypertarget{functions_8h_abc151ba67b4c70f0e8dc3fe894264aa1}\label{functions_8h_abc151ba67b4c70f0e8dc3fe894264aa1}} 
+\index{functions.h@{functions.h}!Direction@{Direction}}
+\index{Direction@{Direction}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{Direction}{Direction}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{functions_8h_a99f26e6ee9fcd62f75203b5402df8098}{direction}} \mbox{\hyperlink{functions_8h_abc151ba67b4c70f0e8dc3fe894264aa1}{Direction}}}
+
+
+
+Enumeration that contains the different possible states of direction. 
+
+\mbox{\Hypertarget{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}\label{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}} 
+\index{functions.h@{functions.h}!Game@{Game}}
+\index{Game@{Game}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{Game}{Game}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structgame}{game}} \mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}}}
+
+
+
+Structure that defines the parameters of the game. 
+
+\mbox{\Hypertarget{functions_8h_af6f366fb1e7740079c3795740bc7bd08}\label{functions_8h_af6f366fb1e7740079c3795740bc7bd08}} 
+\index{functions.h@{functions.h}!GameType@{GameType}}
+\index{GameType@{GameType}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{GameType}{GameType}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3}{game\+Type}} \mbox{\hyperlink{functions_8h_af6f366fb1e7740079c3795740bc7bd08}{Game\+Type}}}
+
+
+
+Enumeration that contains the different possible states of game type. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909d}\label{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909d}} 
+\index{functions.h@{functions.h}!boxType@{boxType}}
+\index{boxType@{boxType}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{boxType}{boxType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909d}{box\+Type}}}
+
+
+
+Enumeration that contains the different possible states of a box. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WATER@{WATER}!functions.h@{functions.h}}\index{functions.h@{functions.h}!WATER@{WATER}}}\mbox{\Hypertarget{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909da9ac7d5e5851d7a2bc186a1c3341589f6}\label{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909da9ac7d5e5851d7a2bc186a1c3341589f6}} 
+WATER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WATER\_SHOT@{WATER\_SHOT}!functions.h@{functions.h}}\index{functions.h@{functions.h}!WATER\_SHOT@{WATER\_SHOT}}}\mbox{\Hypertarget{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909dae8af2ae3ffe833ed5371a22f29a0646b}\label{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909dae8af2ae3ffe833ed5371a22f29a0646b}} 
+WATER\+\_\+\+SHOT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOAT@{BOAT}!functions.h@{functions.h}}\index{functions.h@{functions.h}!BOAT@{BOAT}}}\mbox{\Hypertarget{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909da5fcfdc36f4798fb6ace9348a10f1e1b3}\label{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909da5fcfdc36f4798fb6ace9348a10f1e1b3}} 
+BOAT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WRECK@{WRECK}!functions.h@{functions.h}}\index{functions.h@{functions.h}!WRECK@{WRECK}}}\mbox{\Hypertarget{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909da6589b5d605e0a15fa3323937132bfa61}\label{functions_8h_ac0152f3a2a9b0b2a4ae2e069fc58909da6589b5d605e0a15fa3323937132bfa61}} 
+WRECK&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{functions_8h_a99f26e6ee9fcd62f75203b5402df8098}\label{functions_8h_a99f26e6ee9fcd62f75203b5402df8098}} 
+\index{functions.h@{functions.h}!direction@{direction}}
+\index{direction@{direction}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{functions_8h_a99f26e6ee9fcd62f75203b5402df8098}{direction}}}
+
+
+
+Enumeration that contains the different possible states of direction. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{H@{H}!functions.h@{functions.h}}\index{functions.h@{functions.h}!H@{H}}}\mbox{\Hypertarget{functions_8h_a99f26e6ee9fcd62f75203b5402df8098a5008b1179f399a2273fd3f6a7fc3b292}\label{functions_8h_a99f26e6ee9fcd62f75203b5402df8098a5008b1179f399a2273fd3f6a7fc3b292}} 
+H&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{V@{V}!functions.h@{functions.h}}\index{functions.h@{functions.h}!V@{V}}}\mbox{\Hypertarget{functions_8h_a99f26e6ee9fcd62f75203b5402df8098a28f41f1144eee94834387e9a6a088bc1}\label{functions_8h_a99f26e6ee9fcd62f75203b5402df8098a28f41f1144eee94834387e9a6a088bc1}} 
+V&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3}\label{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3}} 
+\index{functions.h@{functions.h}!gameType@{gameType}}
+\index{gameType@{gameType}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{gameType}{gameType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3}{game\+Type}}}
+
+
+
+Enumeration that contains the different possible states of game type. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLAYER@{PLAYER}!functions.h@{functions.h}}\index{functions.h@{functions.h}!PLAYER@{PLAYER}}}\mbox{\Hypertarget{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3ade5dc3e0dbd007d995ed3e37bde5ce7e}\label{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3ade5dc3e0dbd007d995ed3e37bde5ce7e}} 
+PLAYER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOT\_H@{BOT\_H}!functions.h@{functions.h}}\index{functions.h@{functions.h}!BOT\_H@{BOT\_H}}}\mbox{\Hypertarget{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3af17572a012356686981c1f2b797e1919}\label{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3af17572a012356686981c1f2b797e1919}} 
+BOT\+\_\+H&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOT@{BOT}!functions.h@{functions.h}}\index{functions.h@{functions.h}!BOT@{BOT}}}\mbox{\Hypertarget{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3a8701d7066e8b0fb9f21e9d933739062e}\label{functions_8h_acd15dc44a0ae0d5b2d9488aae8b27df3a8701d7066e8b0fb9f21e9d933739062e}} 
+BOT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{functions_8h_a68c47bf4770c750d376111c208b36b89}\label{functions_8h_a68c47bf4770c750d376111c208b36b89}} 
+\index{functions.h@{functions.h}!checkWinner@{checkWinner}}
+\index{checkWinner@{checkWinner}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{checkWinner()}{checkWinner()}}
+{\footnotesize\ttfamily int check\+Winner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}} $\ast$}]{game,  }\item[{int}]{player }\end{DoxyParamCaption})}
+
+
+
+Function to verify if there is a winner. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em game} & the game we are currently playing \\
+\hline
+\mbox{\texttt{ in}}  & {\em player} & the player we want to check if he is a winner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if there is a winner, else 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_ae661f1bcfe2fb8a112d1cfd43647d0ac}\label{functions_8h_ae661f1bcfe2fb8a112d1cfd43647d0ac}} 
+\index{functions.h@{functions.h}!createBoat@{createBoat}}
+\index{createBoat@{createBoat}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{createBoat()}{createBoat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{functions_8h_a33bc35bd542701fe9b4250c6b052b772}{Boat}}$\ast$ create\+Boat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{functions_8h_a3c10129367cfae8f208778364a6a928e}{Board}} $\ast$}]{player\+Board,  }\item[{int}]{boat\+Number }\end{DoxyParamCaption})}
+
+
+
+Function to create a boat. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em player\+Board} & the board of the player we want to create a boat on \\
+\hline
+\mbox{\texttt{ in}}  & {\em boat\+Number} & the number of boats per player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The boat we created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a629d3eb48de7cf73518a8f3af68b67ce}\label{functions_8h_a629d3eb48de7cf73518a8f3af68b67ce}} 
+\index{functions.h@{functions.h}!createGame@{createGame}}
+\index{createGame@{createGame}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{createGame()}{createGame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}}$\ast$ create\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{functions_8h_a9dc26f46286982340aefcc77e5b8e376}\label{functions_8h_a9dc26f46286982340aefcc77e5b8e376}} 
+\index{functions.h@{functions.h}!freeBoard@{freeBoard}}
+\index{freeBoard@{freeBoard}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{freeBoard()}{freeBoard()}}
+{\footnotesize\ttfamily void free\+Board (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{functions_8h_a3c10129367cfae8f208778364a6a928e}{Board}} $\ast$}]{board }\end{DoxyParamCaption})}
+
+
+
+Function to free memory allocated to a board. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & the board we want to free memory from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a491341d547ffabcf60d3f41f3624c9e2}\label{functions_8h_a491341d547ffabcf60d3f41f3624c9e2}} 
+\index{functions.h@{functions.h}!freeGame@{freeGame}}
+\index{freeGame@{freeGame}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{freeGame()}{freeGame()}}
+{\footnotesize\ttfamily void free\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Function to free memory allocated to a game. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em game} & the game we want to free memory allocated to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a52d50c149f41317d47d25a8f8f78b275}\label{functions_8h_a52d50c149f41317d47d25a8f8f78b275}} 
+\index{functions.h@{functions.h}!initBoard@{initBoard}}
+\index{initBoard@{initBoard}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{initBoard()}{initBoard()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{functions_8h_a3c10129367cfae8f208778364a6a928e}{Board}}$\ast$ init\+Board (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Function to initialize a {\bfseries{board}} of game. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em size} & the {\bfseries{size}} of the board \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The board we initialized 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_adb27847acb8934d437800d45abde6069}\label{functions_8h_adb27847acb8934d437800d45abde6069}} 
+\index{functions.h@{functions.h}!isBoatAlive@{isBoatAlive}}
+\index{isBoatAlive@{isBoatAlive}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{isBoatAlive()}{isBoatAlive()}}
+{\footnotesize\ttfamily int is\+Boat\+Alive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{functions_8h_a33bc35bd542701fe9b4250c6b052b772}{Boat}} $\ast$}]{boat }\end{DoxyParamCaption})}
+
+
+
+Function to verify if a boat is still alive. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em boat} & the boat we want to check life status \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the size of the boat is $>$ 0, else 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_acf216df668455c1735c5fcdee1a0f537}\label{functions_8h_acf216df668455c1735c5fcdee1a0f537}} 
+\index{functions.h@{functions.h}!printBoard@{printBoard}}
+\index{printBoard@{printBoard}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{printBoard()}{printBoard()}}
+{\footnotesize\ttfamily void print\+Board (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}} $\ast$}]{game,  }\item[{int}]{player }\end{DoxyParamCaption})}
+
+
+
+Function to print the board. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em game} & the game we are currently playing \\
+\hline
+\mbox{\texttt{ in}}  & {\em player} & the player we want to print the board of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a2f24571888f7060f5df2d1190663fde8}\label{functions_8h_a2f24571888f7060f5df2d1190663fde8}} 
+\index{functions.h@{functions.h}!printBoats@{printBoats}}
+\index{printBoats@{printBoats}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{printBoats()}{printBoats()}}
+{\footnotesize\ttfamily void print\+Boats (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}} $\ast$}]{game,  }\item[{int}]{player }\end{DoxyParamCaption})}
+
+
+
+Function to print the boats of a player. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em game} & the game we are currently playing \\
+\hline
+\mbox{\texttt{ in}}  & {\em player} & the player we want to print the boats of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_ae3e2a943202e805e4e4519eee29a5d15}\label{functions_8h_ae3e2a943202e805e4e4519eee29a5d15}} 
+\index{functions.h@{functions.h}!shoot@{shoot}}
+\index{shoot@{shoot}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{shoot()}{shoot()}}
+{\footnotesize\ttfamily void shoot (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{functions_8h_a3c10129367cfae8f208778364a6a928e}{Board}} $\ast$}]{player\+Board,  }\item[{\mbox{\hyperlink{functions_8h_a3c10129367cfae8f208778364a6a928e}{Board}} $\ast$}]{opponent\+Board,  }\item[{\mbox{\hyperlink{functions_8h_a33bc35bd542701fe9b4250c6b052b772}{Boat}} $\ast$}]{opponent\+Boats }\end{DoxyParamCaption})}
+
+
+
+Function to simulate a shot on the other board. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & the reference position in x \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & the reference position in y \\
+\hline
+\mbox{\texttt{ in}}  & {\em player\+Board} & the board of the player who shots \\
+\hline
+\mbox{\texttt{ in}}  & {\em opponent\+Board} & the board of the player who gets shot \\
+\hline
+\mbox{\texttt{ in}}  & {\em opponent\+Boats} & the position of the opponent boats \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a87e6b0c533cd6f9c78e6e95a56c7562d}\label{functions_8h_a87e6b0c533cd6f9c78e6e95a56c7562d}} 
+\index{functions.h@{functions.h}!showPOV@{showPOV}}
+\index{showPOV@{showPOV}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{showPOV()}{showPOV()}}
+{\footnotesize\ttfamily void show\+POV (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}} $\ast$}]{game,  }\item[{int}]{player }\end{DoxyParamCaption})}
+
+
+
+Function to show the POV of the player \+: {\bfseries{player board + shot board}} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em game} & the game we are currently playing \\
+\hline
+\mbox{\texttt{ in}}  & {\em player} & the player we want to show the POV of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a3cdb07d6db0d990dafaecd71f04ac97a}\label{functions_8h_a3cdb07d6db0d990dafaecd71f04ac97a}} 
+\index{functions.h@{functions.h}!turn@{turn}}
+\index{turn@{turn}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{turn()}{turn()}}
+{\footnotesize\ttfamily int turn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{functions_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}} $\ast$}]{game,  }\item[{int}]{player,  }\item[{\mbox{\hyperlink{functions_8h_af6f366fb1e7740079c3795740bc7bd08}{Game\+Type}}}]{game\+Type }\end{DoxyParamCaption})}
+
+
+
+Function to sequence the turn of the players. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em game} & the game we are currently playing \\
+\hline
+\mbox{\texttt{ in}}  & {\em player} & the player we want to sequence the turn of \\
+\hline
+\mbox{\texttt{ in}}  & {\em game\+Type} & the type of game \+: {\bfseries{player mode, normal bot mode or hardcore bot mode}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if no error 
+\end{DoxyReturn}
